@@ -5,7 +5,7 @@ If you want to do the same thing, this script can help you.
 
 # Examples:
 
-Example 1: Directly fetch the twitch chat and search your messages:
+Example 1: Directly fetch the twitch chats and search your messages:
 ```bash
 ➜ python findmychat.py -u https://www.twitch.tv/videos/160499333 -n grimlinzbot -s grimmmz
 ➜ At 01 Hour, 11 Minute, 26 Second: Twitch Prime is a premium experience on Twitch that is included with an Amazon Prime membership. ➜ A FREE CHANNEL SUBSCRIPTION EVERY 30 DAYS TO BE USED ON ANY PARTNERED CHANNEL, ad-free viewing on Twitch, exclusive emotes, and chat badge.
@@ -14,7 +14,7 @@ Example 1: Directly fetch the twitch chat and search your messages:
 ➜ ...
 ```
 
-Example 2: Load the fetched chat from file and search your message:
+Example 2: Load the fetched chat from a file and search your message:
 ```bash
 ➜ python findmychat.py -u https://www.twitch.tv/videos/160499333 -n grimlinzbot -l grimmmz
 ➜ At 01 Hour, 11 Minute, 26 Second: Twitch Prime is a premium experience on Twitch that is included with an Amazon Prime membership. ➜ A FREE CHANNEL SUBSCRIPTION EVERY 30 DAYS TO BE USED ON ANY PARTNERED CHANNEL, ad-free viewing on Twitch, exclusive emotes, and chat badge.
@@ -24,10 +24,10 @@ Example 2: Load the fetched chat from file and search your message:
 ```
 
 # Commands:
--u: specify the archived Twitch video URL
--n: the name of the twitch user
--s: save the chat log fetched from server
--l: load the chat log from local file
+* -u: specify the archived Twitch video URL
+* -n: the name of the twitch user
+* -s: save the chat log fetched from server
+* -l: load the chat log from local file
 
 # Known Issues:
 
@@ -39,5 +39,5 @@ In the next release, I will find out the real cause. The worst scenario is addin
 # To Do List:
 
 1. Progress Bar:
-Right now, each thread has it own progress bar. I tried to use lock to implement a progress bar, but 
-it drop the performance immediately.
+Right now, each thread has it own progress bar. I tried to use lock to implement universal progress bar, but 
+it drops the performance significantly.
