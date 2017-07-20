@@ -119,18 +119,22 @@ def get_my_chats(raw_chats, twitch_name = None):
             if not twitch_name:
                 results.append(d)
             else:
-                if d['attributes']['from'] == twitch_name or \
-                d['attributes']['tags']['display-name'] == twitch_name:
-                    results.append(d)
+                try:
+                    if d['attributes']['from'] == twitch_name or \
+                    d['attributes']['tags']['display-name'] == twitch_name:
+                        results.append(d)
+                except KeyError as e:
+                    continue
     return results
 
 def print_my_chats(my_chats, timestamps):
+    my_chats.sort(key=lambda x: x['attributes']['timestamp'])
     if my_chats:
         for e in my_chats:
             t = int(e['attributes']['timestamp'])/1000 - int(timestamps['time_beg'])
             sec = timedelta(seconds=t)
             d = datetime(1, 1, 1) + sec
-            print "At {0:0>2} Hour, {1:0>2} Minute, {2:0>2} Second:  {3}".format(d.hour, d.minute, d.second, e['attributes']['message'])
+            print u"At {0:0>2} Hour, {1:0>2} Minute, {2:0>2} Second: {3}".format(d.hour, d.minute, d.second, e['attributes']['message'])
 
 def main():
     parser = argparse.ArgumentParser()
