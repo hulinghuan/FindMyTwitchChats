@@ -39,5 +39,5 @@ In the next release, I will find out the real cause. The worst scenario is addin
 # To Do List:
 
 1. Progress Bar:
-Right now, each thread has it own progress bar. I tried to use lock to implement universal progress bar, but 
+So far, each thread has its own progress bar. I tried to use lock to implement universal progress bar, but 
 it drops the performance significantly.
